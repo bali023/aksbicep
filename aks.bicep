@@ -33,7 +33,7 @@ param osDiskSizeGB int = 0
 param agentCount int = 3
 
 @description('VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions')
-param agentVMSize string = 'Standard_B4ms'
+param agentVMSize string = 'Standard_B1ms'
 
 resource aks 'Microsoft.ContainerService/managedClusters@2021-07-01' = {
   name: uniqueclustername
