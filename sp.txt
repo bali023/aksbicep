@@ -7,11 +7,31 @@ echo "Using subscription ID $subscriptionID"
 resourceGroup="myResourceGroupName"
 
 echo "Creating SP for RBAC with name $servicePrincipalName, with role $roleName and in scopes /subscriptions/$subscriptionID/resourceGroups/$resourceGroup"
-az ad sp create-for-rbac --name "BicepTestSP" --role $contributor --scopes /subscriptions/f1aefab1-4b1f-47fc-b2bc-809ee7c2094e/resourceGroups/biceptest1
+az ad sp create-for-rbac --name "BicepTestSP1" --role $contributor --scopes /subscriptions/f1aefab1-4b1f-47fc-b2bc-809ee7c2094e/resourceGroups/biceptest1 --sdk-auth
 
 {
   "appId": "c611e35e-43e3-4b9f-ab37-5ac0e955e9b5",
   "displayName": "BicepTestSP",
   "password": "d_G8Q~2xusau5sl0uUrkzaek_O2ClwbEwy1i0b2l",
   "tenant": "3e050472-00f0-4c69-8184-4e9ee6f159b3"
+}
+
+az keyvault create --name "$NAME" --resource-group "$NAME" --location "$LOC" --enabled-for-template-deployment=true --enabled-for-disk-encryption --enabled-for-deployment --sdk-auth
+
+
+"/subscriptions/f1aefab1-4b1f-47fc-b2bc-809ee7c2094e/resourceGroups/biceptest1/providers/Microsoft.KeyVault/vaults/testbicepkeyvault34492"
+
+f1aefab1-4b1f-47fc-b2bc-809ee7c2094e
+
+{
+  "clientId": "a46874c5-5e43-4d5c-a07b-267c10ec27d9",
+  "clientSecret": "hw_8Q~jW5m8RRKwx_ozgGv-DENZ82y02RGZ8~dts",
+  "subscriptionId": "f1aefab1-4b1f-47fc-b2bc-809ee7c2094e",
+  "tenantId": "3e050472-00f0-4c69-8184-4e9ee6f159b3",
+  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+  "resourceManagerEndpointUrl": "https://management.azure.com/",
+  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+  "galleryEndpointUrl": "https://gallery.azure.com/",
+  "managementEndpointUrl": "https://management.core.windows.net/"
 }
