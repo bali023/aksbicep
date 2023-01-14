@@ -35,3 +35,5 @@ f1aefab1-4b1f-47fc-b2bc-809ee7c2094e
   "galleryEndpointUrl": "https://gallery.azure.com/",
   "managementEndpointUrl": "https://management.core.windows.net/"
 }
+
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ContainerService
