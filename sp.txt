@@ -1,0 +1,17 @@
+let "randomIdentifier=$RANDOM*$RANDOM"  
+servicePrincipalName="msdocs-sp-$randomIdentifier"
+roleName="azureRoleName"
+subscriptionID=$(az account show --query id -o tsv)
+# Verify the ID of the active subscription
+echo "Using subscription ID $subscriptionID"
+resourceGroup="myResourceGroupName"
+
+echo "Creating SP for RBAC with name $servicePrincipalName, with role $roleName and in scopes /subscriptions/$subscriptionID/resourceGroups/$resourceGroup"
+az ad sp create-for-rbac --name "BicepTestSP" --role $contributor --scopes /subscriptions/f1aefab1-4b1f-47fc-b2bc-809ee7c2094e/resourceGroups/biceptest1
+
+{
+  "appId": "c611e35e-43e3-4b9f-ab37-5ac0e955e9b5",
+  "displayName": "BicepTestSP",
+  "password": "d_G8Q~2xusau5sl0uUrkzaek_O2ClwbEwy1i0b2l",
+  "tenant": "3e050472-00f0-4c69-8184-4e9ee6f159b3"
+}
